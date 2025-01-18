@@ -44,11 +44,11 @@ func _on_test_attack_timer_timeout() -> void:
 	var up = attack_scene.instantiate()
 	up.direction = "up"
 	var down = attack_scene.instantiate()
-	up.direction = "down"
+	down.direction = "down"
 	var left = attack_scene.instantiate()
-	up.direction = "left"
+	left.direction = "left"
 	var right = attack_scene.instantiate()
-	up.direction = "right"
+	right.direction = "right"
 	add_child(up)
 	add_child(down)
 	add_child(left)
