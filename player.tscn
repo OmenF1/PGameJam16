@@ -1,6 +1,6 @@
 [gd_scene load_steps=104 format=3 uid="uid://bc4juxk8g67hf"]
 
-[ext_resource type="Texture2D" uid="uid://b6xc2g1euy7tn" path="res://Hero_PN.png" id="1_fj8db"]
+[ext_resource type="Texture2D" uid="uid://b6xc2g1euy7tn" path="res://Assets/Hero_PN.png" id="1_fj8db"]
 [ext_resource type="Script" path="res://player.gd" id="1_n4hvl"]
 [ext_resource type="PackedScene" uid="uid://cu4kfy44ajv2y" path="res://hud.tscn" id="2_hij30"]
 
@@ -737,3 +737,4 @@ animation = &"walk_right"
 frame_progress = 0.989288
 
 [node name="Hud" parent="." instance=ExtResource("2_hij30")]
+visible = false
