@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://yqs3agappjty"]
+[gd_scene load_steps=6 format=3 uid="uid://yqs3agappjty"]
 
 [ext_resource type="Texture2D" uid="uid://cyi5x1n123app" path="res://Assets/Ninja_P1.PNG" id="1_2mqca"]
+[ext_resource type="Script" path="res://basic_mob.gd" id="1_yt2bo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhdn4"]
 atlas = ExtResource("1_2mqca")
@@ -21,7 +22,10 @@ animations = [{
 radius = 16.0
 height = 48.0
 
-[node name="BasicMob" type="CharacterBody2D"]
+[node name="BasicMob" type="RigidBody2D"]
+collision_mask = 3
+gravity_scale = 0.0
+script = ExtResource("1_yt2bo")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.38419e-07, 2.38419e-07)

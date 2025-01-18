@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0dtep7vmh0yx"]
+
+[ext_resource type="Texture2D" uid="uid://425d4mhgvo0b" path="res://Assets/DiamondWeapons.png" id="1_tai2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj3oq"]
+atlas = ExtResource("1_tai2q")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7e2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj3oq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rhfq"]
+height = 22.0
+
+[node name="BasicAttack" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s7e2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1rhfq")
