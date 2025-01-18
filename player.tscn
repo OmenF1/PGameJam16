@@ -744,7 +744,6 @@ frame_progress = 0.989288
 visible = false
 
 [node name="TestAttackTimer" type="Timer" parent="."]
-wait_time = 1.5
 autostart = true
 
 [connection signal="timeout" from="TestAttackTimer" to="." method="_on_test_attack_timer_timeout"]

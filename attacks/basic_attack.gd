@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 				velocity.y += 1
 			"down":
 				velocity.y -= 1
-		velocity = velocity.normalized() * 50
+		velocity = velocity.normalized() * 200
 		move_and_collide(velocity * delta)
 
 

@@ -43,16 +43,21 @@ func _process(delta):
 func _on_test_attack_timer_timeout() -> void:
 	var up = attack_scene.instantiate()
 	up.direction = "up"
+	up.position = global_position
 	var down = attack_scene.instantiate()
 	down.direction = "down"
+	down.position = global_position
 	var left = attack_scene.instantiate()
 	left.direction = "left"
+	left.position = global_position
 	var right = attack_scene.instantiate()
 	right.direction = "right"
-	add_child(up)
-	add_child(down)
-	add_child(left)
-	add_child(right)
+	right.position = global_position
+	get_parent().add_child(up)
+	get_parent().add_child(down)
+	get_parent().add_child(left)
+	get_parent().add_child(right)
+	
 	$TestAttackTimer.start()
 	
 	
