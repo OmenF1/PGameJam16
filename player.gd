@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@export var attack_scene: PackedScene
 @export var speed=150
 
 var hp = 100
@@ -38,3 +38,25 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 	$Hud.hp = hp
 	$Hud.mana = mana
+
+
+func _on_test_attack_timer_timeout() -> void:
+	var up = attack_scene.instantiate()
+	up.direction = "up"
+	var down = attack_scene.instantiate()
+	up.direction = "down"
+	var left = attack_scene.instantiate()
+	up.direction = "left"
+	var right = attack_scene.instantiate()
+	up.direction = "right"
+	add_child(up)
+	add_child(down)
+	add_child(left)
+	add_child(right)
+	$TestAttackTimer.start()
+	
+	
+	
+	
+	
+	

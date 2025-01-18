@@ -1,8 +1,9 @@
-[gd_scene load_steps=104 format=3 uid="uid://bc4juxk8g67hf"]
+[gd_scene load_steps=105 format=3 uid="uid://bc4juxk8g67hf"]
 
 [ext_resource type="Texture2D" uid="uid://b6xc2g1euy7tn" path="res://Assets/Hero_PN.png" id="1_fj8db"]
 [ext_resource type="Script" path="res://player.gd" id="1_n4hvl"]
 [ext_resource type="PackedScene" uid="uid://cu4kfy44ajv2y" path="res://hud.tscn" id="2_hij30"]
+[ext_resource type="PackedScene" uid="uid://c0dtep7vmh0yx" path="res://attacks/basic_attack.tscn" id="2_x6tm1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5wwf"]
 radius = 18.0
@@ -723,7 +724,10 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_n4hvl")
+attack_scene = ExtResource("2_x6tm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(19, 26)
@@ -738,3 +742,9 @@ frame_progress = 0.989288
 
 [node name="Hud" parent="." instance=ExtResource("2_hij30")]
 visible = false
+
+[node name="TestAttackTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="TestAttackTimer" to="." method="_on_test_attack_timer_timeout"]

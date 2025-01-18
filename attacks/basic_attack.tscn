@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0dtep7vmh0yx"]
+[gd_scene load_steps=7 format=3 uid="uid://c0dtep7vmh0yx"]
 
+[ext_resource type="Script" path="res://attacks/basic_attack.gd" id="1_c42lr"]
 [ext_resource type="Texture2D" uid="uid://425d4mhgvo0b" path="res://Assets/DiamondWeapons.png" id="1_tai2q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xj3oq"]
@@ -17,13 +18,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_arsre"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rhfq"]
 height = 22.0
 
-[node name="BasicAttack" type="Area2D"]
+[node name="BasicAttack" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_c42lr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s7e2h")
 
+[node name="AttackCollisionDetect" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCollisionDetect"]
+shape = SubResource("CircleShape2D_arsre")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_1rhfq")
+
+[connection signal="area_entered" from="AttackCollisionDetect" to="." method="_on_area_2d_area_entered"]
