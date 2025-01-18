@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://6vohancutyec"]
+
+[ext_resource type="Script" path="res://vendor.gd" id="1_2tvre"]
+[ext_resource type="Texture2D" uid="uid://cv6jxvirqcqpo" path="res://Assets/Inside_D.png" id="2_cirn0"]
+[ext_resource type="PackedScene" uid="uid://x4gcy6gxtumv" path="res://vendor_menu.tscn" id="3_aan3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6xhd"]
+atlas = ExtResource("2_cirn0")
+region = Rect2(480, 288, 95, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u45hl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6xhd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhcnb"]
+size = Vector2(71.2258, 94)
+
+[node name="stash" type="RigidBody2D"]
+position = Vector2(1, 1)
+scale = Vector2(0.99683, 1)
+collision_mask = 0
+input_pickable = true
+mass = 50000.0
+gravity_scale = 0.0
+script = ExtResource("1_2tvre")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.8, 1.708)
+sprite_frames = SubResource("SpriteFrames_u45hl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.38419e-06, -2)
+scale = Vector2(2, 2.002)
+shape = SubResource("RectangleShape2D_lhcnb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0763
+offset_top = -95.0
+offset_right = 31.9237
+offset_bottom = -72.0
+text = "Stash"
+
+[node name="VendorMenu" parent="." instance=ExtResource("3_aan3p")]
+offset_left = 86.0
+offset_top = -91.0
+offset_right = 513.0
+offset_bottom = 182.0
+scale = Vector2(0.605064, 0.689723)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

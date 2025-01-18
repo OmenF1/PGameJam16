@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu4kfy44ajv2y"]
+
+[ext_resource type="Texture2D" uid="uid://040ps0bm4ghc" path="res://Assets/base'.png" id="1_cxyc5"]
+[ext_resource type="Script" path="res://hud.gd" id="1_ncod1"]
+[ext_resource type="Texture2D" uid="uid://gv8s42aqtqq1" path="res://Assets/over.png" id="2_rye2e"]
+[ext_resource type="Texture2D" uid="uid://ce30ck5h8qaaq" path="res://Assets/under.png" id="3_pt8bw"]
+[ext_resource type="Texture2D" uid="uid://c3n0x8gvvu1me" path="res://Assets/hpOver.png" id="4_em8wg"]
+[ext_resource type="Texture2D" uid="uid://bskanm3gjhceh" path="res://Assets/manaOver.png" id="5_nns3t"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ncod1")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Experience" type="TextureProgressBar" parent="HUD"]
+layout_mode = 0
+offset_top = 640.0
+offset_right = 1152.0
+offset_bottom = 660.0
+value = 30.0
+texture_under = ExtResource("1_cxyc5")
+texture_progress = ExtResource("2_rye2e")
+
+[node name="Health" type="TextureProgressBar" parent="HUD"]
+layout_mode = 0
+offset_top = 456.0
+offset_right = 212.0
+offset_bottom = 640.0
+value = 100.0
+texture_under = ExtResource("3_pt8bw")
+texture_progress = ExtResource("4_em8wg")
+
+[node name="Mana" type="TextureProgressBar" parent="HUD"]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 456.0
+offset_right = 1152.0
+offset_bottom = 640.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("3_pt8bw")
+texture_progress = ExtResource("5_nns3t")

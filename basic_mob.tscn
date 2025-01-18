@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://yqs3agappjty"]
+
+[ext_resource type="Texture2D" uid="uid://cyi5x1n123app" path="res://Assets/Ninja_P1.PNG" id="1_2mqca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhdn4"]
+atlas = ExtResource("1_2mqca")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dt5p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhdn4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb7sv"]
+radius = 16.0
+height = 48.0
+
+[node name="BasicMob" type="CharacterBody2D"]
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+sprite_frames = SubResource("SpriteFrames_dt5p4")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qb7sv")
