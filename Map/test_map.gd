@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 func _on_mob_spawn_timer_timeout() -> void:
 	for i in range(5):
 		var mob = mob_scene.instantiate()
+		mob.scale = Vector2(0.2, 0.2)
 		add_child(mob)
 		mob.position = Vector2(randf_range(100, 800), randf_range(100, 600)) 
 		
