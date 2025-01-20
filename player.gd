@@ -60,8 +60,5 @@ func _on_test_attack_timer_timeout() -> void:
 	
 	$TestAttackTimer.start()
 	
-	
-	
-	
-	
-	
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	hp -= 10

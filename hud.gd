@@ -13,7 +13,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$HUD/Health.max_value = max_hp
-	$HUD/Health.value = hp
-	$HUD/Mana.max_value = max_mana
-	$HUD/Mana.value = mana
+	$HUD/HealthBar.max_value = max_hp
+	$HUD/HealthBar.value = hp
